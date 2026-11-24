@@ -70,12 +70,11 @@ main > section { padding: 56px 24px; max-width: 1180px; margin: 0 auto; }
 .herramienta[aria-checked="true"] { border-color: var(--trigo); background: #3A4478; }
 .herramienta .icono { width: 28px; height: 28px; object-fit: contain; image-rendering: pixelated; }
 
-.ajustes { display: grid; gap: 6px; margin: 6px 0 10px; font-size: .92rem; }
-.ajustes label { display: flex; align-items: center; gap: 10px; }
-.ajustes input[type=range] { accent-color: var(--trigo); width: 140px; }
-.ajustes output { font-family: var(--pixel); font-size: 1.3rem; color: var(--trigo); min-width: 1ch; }
 
-.resumen { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 14px 0; font-size: .95rem; }
+.resultado { background: var(--trigo); color: var(--noche); border-radius: 6px; padding: 12px 16px; margin: 16px 0 10px; box-shadow: 4px 4px 0 var(--tierra); }
+.portada .resultado p { color: var(--noche); margin: 0; font-size: 1.1rem; line-height: 1.45; }
+.resultado .grande { font: 400 2.2rem/1 var(--pixel); vertical-align: -3px; }
+.resumen { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 10px 0 14px; font-size: .95rem; }
 .resumen dt { color: #AEB5D6; }
 .resumen dd { margin: 0; font-weight: 700; color: var(--trigo); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
 

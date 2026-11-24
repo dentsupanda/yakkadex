@@ -37,13 +37,9 @@
       <h2 id="t-plan">Planificador de granja</h2>
       <p>Los Legendarios potencian a los Yakkamon que trabajan dentro de su aura. Prueba dónde colocarlos: elige una pieza y toca las casillas; cada trabajador muestra cuánto rinde.</p>
       <div class="herramientas" role="radiogroup" aria-label="Pieza a colocar"></div>
-      <div class="ajustes">
-        <label>Radio de aura chica <input type="range" id="radio-chico" min="1" max="4" value="1"> <output id="v-chico">1</output></label>
-        <label>Radio de aura grande <input type="range" id="radio-grande" min="2" max="6" value="3"> <output id="v-grande">3</output></label>
-        <label class="casilla"><input type="checkbox" id="forma-redonda"> Aura redonda</label>
-      </div>
-      <p class="aviso">Los radios exactos aún no se conocen: la documentación solo dice «chico» y «grande». Los ajustaremos cuando los veamos en el juego.</p>
-      <dl class="resumen" aria-live="polite"></dl>
+      <div class="resultado" aria-live="polite"></div>
+      <p class="aviso">Áreas aproximadas. Los devs solo dijeron que el aura chica (Ondi, Kova) alcanza los trabajos pegados al Legendario y la grande (Raigo) cubre una sección de la granja. Cuando se publique el tamaño exacto de cada aura, lo actualizaremos aquí.</p>
+      <dl class="resumen"></dl>
       <button type="button" class="boton-sec" id="limpiar">Vaciar la granja</button>
     </div>
   </section>

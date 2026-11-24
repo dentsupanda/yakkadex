@@ -15,10 +15,10 @@ window.YAKKADEX = {
     { id: 'siniestro', nombre: 'Dark', color: '#7A6E83', cantidad: 1 },
   ],
   legendarios: [
-    { nombre: 'Raigo', antes: 'Storm', tipo: 'dragon', oferta: 75, habilidad: 'Stormcharged', efecto: 'Los Yakkamon dentro de su alcance trabajan el doble de rápido.', alcance: 'grande', radio: 3, rangos: 'Top 1-50 del ranking' },
-    { nombre: 'Ondi', antes: 'Echo', tipo: 'dragon', oferta: 275, habilidad: '', efecto: 'Los Yakkamon dentro de su alcance producen el doble de recursos.', alcance: 'chico', radio: 1, rangos: 'Top 1-3 y 51-250' },
-    { nombre: 'Kova', antes: 'Ghost', tipo: 'dragon', oferta: 400, habilidad: 'Unsleeping', efecto: 'Los Yakkamon dentro de su alcance siempre tienen la stamina al máximo.', alcance: 'chico', radio: 1, rangos: 'Top 4-10 y 251-500' },
-    { nombre: 'Salu', antes: 'Bloom', tipo: 'dragon', oferta: 2000, habilidad: '', efecto: 'Recupera un porcentaje de su vida máxima en cada turno de combate.', alcance: 'combate', radio: 0, rangos: 'Top 501-2000' },
+    { nombre: 'Raigo', antes: 'Storm', tipo: 'dragon', oferta: 75, habilidad: 'Stormcharged', efecto: 'Los Yakkamon dentro de su alcance trabajan el doble de rápido.', alcance: 'grande', rangos: 'Top 1-50 del ranking' },
+    { nombre: 'Ondi', antes: 'Echo', tipo: 'dragon', oferta: 275, habilidad: '', efecto: 'Los Yakkamon dentro de su alcance producen el doble de recursos.', alcance: 'chico', rangos: 'Top 1-3 y 51-250' },
+    { nombre: 'Kova', antes: 'Ghost', tipo: 'dragon', oferta: 400, habilidad: 'Unsleeping', efecto: 'Los Yakkamon dentro de su alcance siempre tienen la stamina al máximo.', alcance: 'chico', rangos: 'Top 4-10 y 251-500' },
+    { nombre: 'Salu', antes: 'Bloom', tipo: 'dragon', oferta: 2000, habilidad: '', efecto: 'Recupera un porcentaje de su vida máxima en cada turno de combate.', alcance: 'combate', rangos: 'Top 501-2000' },
   ],
   monstruos: [
     { nombre: 'Raigo', tipo: 'dragon', rareza: 'Legendario', oferta: 75, nota: 'Genesis' },

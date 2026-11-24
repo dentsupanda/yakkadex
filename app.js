@@ -93,17 +93,14 @@
     return b;
   });
 
-  const radio = aura => aura === 'grande' ? +$('#radio-grande').value : +$('#radio-chico').value;
-  const dentro = (a, b, r) => {
+  const dentro = (a, b, aura) => {
     const dx = Math.abs(a % COLS - b % COLS), dy = Math.abs(Math.floor(a / COLS) - Math.floor(b / COLS));
-    return $('#forma-redonda').checked ? dx * dx + dy * dy <= r * r : Math.max(dx, dy) <= r;
+    return aura === 'grande' ? Math.max(dx, dy) <= 3 : dx + dy <= 1;
   };
-  const cubren = (i, id) => celdas.some((c, j) => c === id && j !== i && dentro(i, j, radio(PIEZAS.find(p => p.id === id).aura)));
+  const cubren = (i, id) => celdas.some((c, j) => c === id && j !== i && dentro(i, j, PIEZAS.find(p => p.id === id).aura));
 
   function pintar() {
-    $('#v-chico').textContent = $('#radio-chico').value;
-    $('#v-grande').textContent = $('#radio-grande').value;
-    let trabajadores = 0, total = 0, sinCansancio = 0;
+    let trabajadores = 0, total = 0, sinCansancio = 0, conOndi = 0, conRaigo = 0, conAmbos = 0;
     celdas.forEach((c, i) => {
       const b = botones[i];
       b.className = 'casilla-g';
@@ -119,22 +116,27 @@
         b.setAttribute('aria-label', `Casilla ${col}, ${fila}: ${p.texto}`);
         return;
       }
-      const mult = (cubren(i, 'Ondi') ? 2 : 1) * (cubren(i, 'Raigo') ? 2 : 1);
+      const o = cubren(i, 'Ondi'), r = cubren(i, 'Raigo');
+      const mult = (o ? 2 : 1) * (r ? 2 : 1);
+      if (o && r) conAmbos++; else if (o) conOndi++; else if (r) conRaigo++;
       trabajadores++;
       total += mult;
       if (cubren(i, 'Kova')) sinCansancio++;
       b.append(el('span', { className: 'pieza trab' + (mult > 1 ? ' potenciado' : '') }, el('img', { src: p.img, alt: '' }), el('span', { className: 'mult', textContent: `×${mult}` })));
       b.setAttribute('aria-label', `Casilla ${col}, ${fila}: trabajador que rinde ×${mult}`);
     });
+    const extra = total - trabajadores;
+    $('.resultado').replaceChildren(trabajadores
+      ? el('p', {}, el('strong', { textContent: trabajadores }), trabajadores === 1 ? ' trabajador produce lo mismo que ' : ' trabajadores producen lo mismo que ', el('strong', { className: 'grande', textContent: total }), ` sin auras${extra ? `: +${Math.round(extra / trabajadores * 100)} % de producción.` : `. ${trabajadores === 1 ? 'Acércalo' : 'Acércalos'} a un Legendario para potenciar${trabajadores === 1 ? 'lo' : 'los'}.`}`)
+      : el('p', { textContent: 'Coloca trabajadores y Legendarios para ver cuánto rinde tu granja.' }));
     $('.resumen').replaceChildren(
-      el('dt', { textContent: 'Trabajadores' }), el('dd', { textContent: trabajadores }),
-      el('dt', { textContent: 'Equivalen a (sin aura)' }), el('dd', { textContent: total }),
-      el('dt', { textContent: 'Ganancia por las auras' }), el('dd', { textContent: trabajadores ? `×${(total / trabajadores).toFixed(2)}` : '—' }),
-      el('dt', { textContent: 'Nunca se cansan (Kova)' }), el('dd', { textContent: sinCansancio }),
+      el('dt', { textContent: 'Con Ondi (×2 recursos)' }), el('dd', { textContent: conOndi }),
+      el('dt', { textContent: 'Con Raigo (×2 velocidad)' }), el('dd', { textContent: conRaigo }),
+      el('dt', { textContent: 'Con los dos (×4)' }), el('dd', { textContent: conAmbos }),
+      el('dt', { textContent: 'Sin cansancio (Kova)' }), el('dd', { textContent: sinCansancio }),
     );
   }
 
-  for (const id of ['#radio-chico', '#radio-grande', '#forma-redonda']) $(id).addEventListener('input', pintar);
   $('#limpiar').addEventListener('click', () => { celdas.fill(null); try { localStorage.removeItem(CLAVE); } catch {} pintar(); });
   pintarHerramientas();
   pintar();
