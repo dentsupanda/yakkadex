@@ -49,12 +49,12 @@
   D.fuentes.forEach((f, i) => { if (i) fuentes.append(' · '); fuentes.append(el('a', { href: f.url, textContent: f.nombre, rel: 'noopener', target: '_blank' })); });
   $('#actualizado').textContent = `Actualizado el ${D.actualizado}.`;
 
-  const COLS = 12, FILAS = 8, CLAVE = 'yakkadex-granja';
+  const COLS = 10, FILAS = 7, CLAVE = 'yakkadex-granja-v2';
   const PIEZAS = [
-    { id: 'Ondi', texto: 'Ondi', tipo: 'leg', aura: 'chica' },
-    { id: 'Raigo', texto: 'Raigo', tipo: 'leg', aura: 'grande' },
-    { id: 'Kova', texto: 'Kova', tipo: 'leg', aura: 'kova' },
-    { id: 'trab', texto: 'Trabajador', tipo: 'trab' },
+    { id: 'Ondi', texto: 'Ondi', tipo: 'leg', aura: 'chica', img: 'sprites/ondi.png' },
+    { id: 'Raigo', texto: 'Raigo', tipo: 'leg', aura: 'grande', img: 'sprites/raigo.png' },
+    { id: 'Kova', texto: 'Kova', tipo: 'leg', aura: 'kova', img: 'sprites/kova.png' },
+    { id: 'trab', texto: 'Trabajador', tipo: 'trab', img: 'sprites/brazito.png' },
     { id: 'borrar', texto: 'Quitar' },
   ];
   let pieza = 'trab';
@@ -64,7 +64,7 @@
     if (Array.isArray(guardado) && guardado.length === celdas.length) celdas = guardado;
     else throw 0;
   } catch {
-    const centro = 3 * COLS + 5;
+    const centro = 3 * COLS + 4;
     celdas[centro] = 'Ondi';
     for (const d of [-1, 1, -COLS, COLS, COLS + 1]) celdas[centro + d] = 'trab';
     celdas[0] = 'trab';
@@ -72,7 +72,7 @@
 
   const herramientas = $('.herramientas');
   for (const p of PIEZAS) {
-    const b = el('button', { type: 'button', className: 'herramienta', textContent: p.texto });
+    const b = el('button', { type: 'button', className: 'herramienta' }, ...(p.img ? [el('img', { className: 'icono', src: p.img, alt: '' })] : []), p.texto);
     b.setAttribute('role', 'radio');
     b.dataset.id = p.id;
     b.addEventListener('click', () => { pieza = p.id; pintarHerramientas(); });
@@ -115,7 +115,7 @@
       if (!c) { b.setAttribute('aria-label', `Casilla ${col}, ${fila}: vacía`); return; }
       const p = PIEZAS.find(x => x.id === c);
       if (p.tipo === 'leg') {
-        b.append(el('span', { className: 'pieza leg', textContent: p.texto }));
+        b.append(el('span', { className: 'pieza leg' }, el('img', { src: p.img, alt: '' }), el('span', { className: 'nombre', textContent: p.texto })));
         b.setAttribute('aria-label', `Casilla ${col}, ${fila}: ${p.texto}`);
         return;
       }
@@ -123,7 +123,7 @@
       trabajadores++;
       total += mult;
       if (cubren(i, 'Kova')) sinCansancio++;
-      b.append(el('span', { className: 'pieza trab' }, el('span', { className: 'mult', textContent: `×${mult}` })));
+      b.append(el('span', { className: 'pieza trab' + (mult > 1 ? ' potenciado' : '') }, el('img', { src: p.img, alt: '' }), el('span', { className: 'mult', textContent: `×${mult}` })));
       b.setAttribute('aria-label', `Casilla ${col}, ${fila}: trabajador que rinde ×${mult}`);
     });
     $('.resumen').replaceChildren(
