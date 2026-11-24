@@ -31,10 +31,17 @@ window.YAKKADEX = {
     { nombre: '#056', tipo: 'psiquico', rareza: 'Legendario', oferta: 0, nota: 'Sin nombre. No salió en huevos ni airdrop' },
   ],
   dex: { total: 38, comunes: 25, raros: 8, legendarios: 5, cazablesEnAcceso: 31 },
+  zonas: [
+    { horas: -6, paises: 'México, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica' },
+    { horas: -5, paises: 'Perú, Colombia, Ecuador, Panamá, Cuba' },
+    { horas: -4, paises: 'Venezuela, Bolivia, Rep. Dominicana, Puerto Rico' },
+    { horas: -3, paises: 'Argentina, Chile, Uruguay, Paraguay' },
+    { horas: 1, paises: 'España (Canarias, una hora menos)' },
+  ],
   fechas: [
-    { dia: '26 nov', que: 'El ranking se oculta (00:00 UTC; en Lima, el 25 a las 19:00).' },
+    { dia: '26 nov', que: 'El ranking se oculta.', utc: '2026-11-26T00:00:00Z' },
     { dia: '27 nov', que: 'Ranking final y foto del leaderboard.' },
-    { dia: '30 nov', que: 'Early access, Wave 1 (OG Club, top 1.000): lunes 30 a las 00:00 UTC. Domingo 29: 18:00 México, 19:00 Perú/Colombia, 20:00 Venezuela, 21:00 Argentina/Chile. Lunes 30: 01:00 España.' },
+    { dia: '30 nov', que: 'Early access, Wave 1 (OG Club, top 1.000).', utc: '2026-11-30T00:00:00Z' },
     { dia: '2 dic', que: 'Reparto de los NFT Genesis al top 5.000.' },
     { dia: 'Diciembre', que: 'Wave 2 unas 2-3 semanas después; las siguientes, cada pocos días o semanas.' },
     { dia: 'Después', que: 'Chapter 0: primera cacería oficial de Legendarios, subastas y retiros de $FLOWER.' },
@@ -48,7 +55,7 @@ window.YAKKADEX = {
       'Solo los Grass regeneran un recurso agotado; los Water riegan los cultivos (ej. Pitclaw).',
       'Las parcelas se desgastan con el uso y refertilizarlas cuesta recursos.',
       'El almacén empieza en 20 y se amplía hasta 800.',
-      'Si no te conectas, todo se pausa. Las expansiones (la primera: 10 de madera y 1 de piedra) nunca se reinician.',
+      'Si no te conectas, todo se pausa. Las expansiones (la primera: 10 Wood y 1 Stone) nunca se reinician.',
       'Tip de los devs: berry bushes, feeders y training dummies juntos, y especializa tu granja en un recurso.',
     ] },
     { tema: 'Caza', origen: 'stream', puntos: [
@@ -75,7 +82,7 @@ window.YAKKADEX = {
       'Breeding llega después del early access y usará el promedio de los padres. No hay evoluciones al inicio.',
       'El huevo de la pre-registración da a todos la misma especie inicial; la racha de toques mejora sus stats.',
     ] },
-    { tema: 'Economía', origen: 'oficial', puntos: [
+    { tema: 'Economía', origen: 'stream', puntos: [
       'Usa $FLOWER, el token de Sunflower Land. En el early access se deposita para gems y VIP, pero no se retira.',
       'Coins: escasas, salen sobre todo de los Contracts (pedidos diarios de Yakkamon concretos).',
       'Solo se vende lo crafteado (ej. lumber, clay bricks); el marketplace cobra una comisión en $FLOWER.',

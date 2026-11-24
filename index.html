@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yakkadex · Guía de Yakkamon en español</title>
-<meta name="description" content="Guía en español de Yakkamon: Legendarios Genesis, tipos, monstruos, cómo funciona la granja, la caza y el combate, fechas del acceso anticipado y un planificador de granja.">
+<meta name="description" content="Guía en español de Yakkamon: Legendarios Genesis, tipos, monstruos, cómo funciona la granja, la caza y el combate, fechas del early access y un planificador de granja.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -26,29 +26,31 @@
 
 <main id="contenido">
   <section class="portada" id="planificador" aria-labelledby="t-plan">
-    <div class="portada-texto">
+    <div class="portada-cabeza">
       <h1>Yakkadex</h1>
-      <p class="bajada">La guía de Yakkamon en español. Empieza por lo que más rinde: dónde poner a tu Legendario.</p>
+      <p class="bajada">Guía en español de Yakkamon: mecánicas, Legendarios, tipos, fechas y un planificador de granja.</p>
+    </div>
+    <div class="granja-marco">
+      <div class="granja" id="granja" role="grid" aria-label="Granja de 12 por 8 casillas"></div>
+    </div>
+    <div class="portada-texto">
       <h2 id="t-plan">Planificador de granja</h2>
-      <p>Elige una pieza y toca las casillas. Cada trabajador muestra cuánto rinde según las auras que lo cubren.</p>
+      <p>Los Legendarios potencian a los Yakkamon que trabajan dentro de su aura. Prueba dónde colocarlos: elige una pieza y toca las casillas; cada trabajador muestra cuánto rinde.</p>
       <div class="herramientas" role="radiogroup" aria-label="Pieza a colocar"></div>
       <div class="ajustes">
         <label>Radio de aura chica <input type="range" id="radio-chico" min="1" max="4" value="1"> <output id="v-chico">1</output></label>
         <label>Radio de aura grande <input type="range" id="radio-grande" min="2" max="6" value="3"> <output id="v-grande">3</output></label>
         <label class="casilla"><input type="checkbox" id="forma-redonda"> Aura redonda</label>
       </div>
-      <p class="aviso">Los radios reales todavía no se publican: la documentación solo dice «chico» y «grande». Ajústalos cuando los veamos en el juego.</p>
+      <p class="aviso">Los radios exactos aún no se conocen: la documentación solo dice «chico» y «grande». Los ajustaremos cuando los veamos en el juego.</p>
       <dl class="resumen" aria-live="polite"></dl>
       <button type="button" class="boton-sec" id="limpiar">Vaciar la granja</button>
-    </div>
-    <div class="granja-marco">
-      <div class="granja" id="granja" role="grid" aria-label="Granja de 12 por 8 casillas"></div>
     </div>
   </section>
 
   <section id="legendarios" aria-labelledby="t-leg">
     <h2 id="t-leg">Legendarios Genesis</h2>
-    <p class="intro">Los cuatro son tipo Dragón. Se reparten el 2 de diciembre según el ranking de la pre-registración. Este reparto no se repetirá.</p>
+    <p class="intro">Los cuatro son tipo Dragon. Se reparten el 2 de diciembre según el ranking de la pre-registración. Este reparto no se repetirá.</p>
     <div class="cartas" id="cartas"></div>
   </section>
 
@@ -80,7 +82,7 @@
 
   <section id="seguridad" aria-labelledby="t-seg" class="seguridad">
     <h2 id="t-seg">Cuidado con las estafas</h2>
-    <p>El único sitio oficial es <strong>yakkamon.com</strong> y la única cuenta oficial en X es <strong>@yakkamon_game</strong>; la anterior fue hackeada. Nadie del equipo te va a pedir tu frase semilla, ni códigos, ni que conectes tu billetera en otro sitio.</p>
+    <p>El único sitio oficial es <strong>yakkamon.com</strong> y la única cuenta oficial en X es <strong>@yakkamon_game</strong>; la anterior fue hackeada. Nadie del equipo te va a pedir tu frase semilla, ni códigos, ni que conectes tu wallet en otro sitio.</p>
   </section>
 </main>
 

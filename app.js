@@ -9,12 +9,10 @@
   const tipo = id => D.tipos.find(t => t.id === id);
   const chip = id => el('span', { className: 'chip', textContent: tipo(id).nombre, style: `background:${tipo(id).color}` });
   const miles = n => n.toLocaleString('es');
-  const MI_LEGENDARIO = 'Ondi';
 
   const cartas = $('#cartas');
   for (const l of D.legendarios) {
-    const c = el('article', { className: 'carta' + (l.nombre === MI_LEGENDARIO ? ' tuyo' : '') });
-    if (l.nombre === MI_LEGENDARIO) c.append(el('span', { className: 'tag-tuyo', textContent: 'El tuyo' }));
+    const c = el('article', { className: 'carta' });
     c.append(
       el('h3', {}, l.nombre, el('span', { className: 'viejo', textContent: `antes «${l.antes}»` })),
       chip(l.tipo),
@@ -27,7 +25,7 @@
 
   $('#lista-tipos').append(...D.tipos.map(t => el('li', { className: 'tipo', textContent: `${t.nombre} · ${t.cantidad}`, style: `background:${t.color}` })));
 
-  $('#dex-intro').textContent = `La Yakkadex oficial tiene ${D.dex.total} espacios: ${D.dex.comunes} comunes, ${D.dex.raros} raros y ${D.dex.legendarios} legendarios. Unos ${D.dex.cazablesEnAcceso} se podrán cazar en el acceso anticipado. Por ahora se conocen estos; la tabla crece a medida que los descubramos.`;
+  $('#dex-intro').textContent = `La Yakkadex oficial tiene ${D.dex.total} espacios: ${D.dex.comunes} comunes, ${D.dex.raros} raros y ${D.dex.legendarios} legendarios. Unos ${D.dex.cazablesEnAcceso} se podrán cazar en el early access. Por ahora se conocen estos; la tabla crece a medida que los descubramos.`;
   $('#tabla-monstruos tbody').append(...D.monstruos.map(m => el('tr', {},
     el('td', { textContent: m.nombre }), el('td', {}, chip(m.tipo)), el('td', { textContent: m.rareza }),
     el('td', { className: 'num', textContent: m.oferta ? miles(m.oferta) : '—' }), el('td', { textContent: m.nota }))));
@@ -36,8 +34,16 @@
     el('h3', {}, m.tema, el('span', { className: 'origen ' + m.origen, textContent: m.origen === 'oficial' ? 'Oficial' : 'Stream' })),
     el('ul', {}, ...m.puntos.map(p => el('li', { textContent: p }))))));
 
+  const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const horaLocal = (utc, horas) => {
+    const d = new Date(Date.parse(utc) + horas * 3600000);
+    return `${DIAS[d.getUTCDay()]} ${d.getUTCDate()}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`;
+  };
+  const horarios = utc => el('table', { className: 'horarios' },
+    el('caption', { textContent: `${horaLocal(utc, 0)} UTC` }),
+    el('tbody', {}, ...D.zonas.map(z => el('tr', {}, el('th', { scope: 'row', textContent: horaLocal(utc, z.horas) }), el('td', { textContent: z.paises })))));
   $('#linea').append(...D.fechas.map(f => el('li', { className: f.dia === '30 nov' ? 'tuyo' : '' },
-    el('span', { className: 'dia', textContent: f.dia }), f.que)));
+    el('span', { className: 'dia', textContent: f.dia }), f.que, ...(f.utc ? [horarios(f.utc)] : []))));
 
   const fuentes = $('#fuentes');
   D.fuentes.forEach((f, i) => { if (i) fuentes.append(' · '); fuentes.append(el('a', { href: f.url, textContent: f.nombre, rel: 'noopener', target: '_blank' })); });
