@@ -28,7 +28,7 @@ window.YAKKADEX = {
     { nombre: 'Malandrix', tipo: 'psiquico', rareza: 'Raro', oferta: 4000, nota: 'Genesis, sin habilidad todavía' },
     { nombre: 'Brazito', tipo: 'fuego', rareza: 'Poco común', oferta: 15000, nota: 'Genesis, sin habilidad todavía (la Yakkadex oficial lo marca Rare)' },
     { nombre: 'Pitclaw', tipo: 'agua', rareza: '¿?', oferta: 0, nota: 'Visto en el dev talk: riega los cultivos' },
-    { nombre: '#056', tipo: 'psiquico', rareza: 'Legendario', oferta: 0, nota: 'Sin nombre. No salió en huevos ni airdrop' },
+    { nombre: '#056', tipo: 'psiquico', rareza: 'Legendario', oferta: 0, nota: 'Sin nombre. Lo mostró la cuenta oficial el 23 ago; no salió en huevos ni airdrop' },
   ],
   dex: { total: 38, comunes: 25, raros: 8, legendarios: 5, cazablesEnAcceso: 31 },
   zonas: [
@@ -100,6 +100,7 @@ window.YAKKADEX = {
     { nombre: 'X oficial: @yakkamon_game', url: 'https://x.com/yakkamon_game' },
     { nombre: 'Discord oficial', url: 'https://discord.gg/yakkamon' },
     { nombre: 'Dev talk del 23/11', url: 'https://youtu.be/p_76EIIkOmU' },
+    { nombre: 'Post oficial con el #056 (23/8)', url: 'https://x.com/yakkamon_game/status/2091740689973608784' },
     { nombre: 'Resúmenes de streams (sitio de fans, no oficial)', url: 'https://yakkamonworld.com/news.html' },
   ],
 };
