@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yakkadex · Guía de Yakkamon en español</title>
+<meta name="description" content="Guía en español de Yakkamon: Legendarios Genesis, tipos, monstruos, cómo funciona la granja, la caza y el combate, fechas del acceso anticipado y un planificador de granja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Ir al contenido</a>
+<header class="barra">
+  <a class="marca" href="#">Yakkadex</a>
+  <nav aria-label="Secciones">
+    <a href="#planificador">Planificador</a>
+    <a href="#legendarios">Legendarios</a>
+    <a href="#tipos">Tipos</a>
+    <a href="#monstruos">Monstruos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#fechas">Fechas</a>
+  </nav>
+</header>
+
+<main id="contenido">
+  <section class="portada" id="planificador" aria-labelledby="t-plan">
+    <div class="portada-texto">
+      <h1>Yakkadex</h1>
+      <p class="bajada">La guía de Yakkamon en español. Empieza por lo que más rinde: dónde poner a tu Legendario.</p>
+      <h2 id="t-plan">Planificador de granja</h2>
+      <p>Elige una pieza y toca las casillas. Cada trabajador muestra cuánto rinde según las auras que lo cubren.</p>
+      <div class="herramientas" role="radiogroup" aria-label="Pieza a colocar"></div>
+      <div class="ajustes">
+        <label>Radio de aura chica <input type="range" id="radio-chico" min="1" max="4" value="1"> <output id="v-chico">1</output></label>
+        <label>Radio de aura grande <input type="range" id="radio-grande" min="2" max="6" value="3"> <output id="v-grande">3</output></label>
+        <label class="casilla"><input type="checkbox" id="forma-redonda"> Aura redonda</label>
+      </div>
+      <p class="aviso">Los radios reales todavía no se publican: la documentación solo dice «chico» y «grande». Ajústalos cuando los veamos en el juego.</p>
+      <dl class="resumen" aria-live="polite"></dl>
+      <button type="button" class="boton-sec" id="limpiar">Vaciar la granja</button>
+    </div>
+    <div class="granja-marco">
+      <div class="granja" id="granja" role="grid" aria-label="Granja de 12 por 8 casillas"></div>
+    </div>
+  </section>
+
+  <section id="legendarios" aria-labelledby="t-leg">
+    <h2 id="t-leg">Legendarios Genesis</h2>
+    <p class="intro">Los cuatro son tipo Dragón. Se reparten el 2 de diciembre según el ranking de la pre-registración. Este reparto no se repetirá.</p>
+    <div class="cartas" id="cartas"></div>
+  </section>
+
+  <section id="tipos" aria-labelledby="t-tipos">
+    <h2 id="t-tipos">Los 12 tipos</h2>
+    <p class="intro">Cada Yakkamon tiene un tipo y el número es cuántos hay en la Yakkadex oficial. En combate, la ventaja de tipo pesa más que todo lo demás. <span class="origen stream">Stream</span></p>
+    <ul class="tipos" id="lista-tipos"></ul>
+  </section>
+
+  <section id="monstruos" aria-labelledby="t-mon">
+    <h2 id="t-mon">Monstruos conocidos</h2>
+    <p class="intro" id="dex-intro"></p>
+    <div class="tabla-marco"><table class="tabla" id="tabla-monstruos">
+      <thead><tr><th scope="col">Nombre</th><th scope="col">Tipo</th><th scope="col">Rareza</th><th scope="col" class="num">Existencias</th><th scope="col">Nota</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+
+  <section id="como-funciona" aria-labelledby="t-como">
+    <h2 id="t-como">Cómo funciona</h2>
+    <p class="intro">Lo marcado con <span class="origen oficial">Oficial</span> sale de la documentación; lo marcado con <span class="origen stream">Stream</span> lo dijeron los desarrolladores en sus transmisiones y puede cambiar, porque el juego es un alfa.</p>
+    <div class="mecanicas" id="mecanicas"></div>
+  </section>
+
+  <section id="fechas" aria-labelledby="t-fechas">
+    <h2 id="t-fechas">Fechas</h2>
+    <ol class="linea" id="linea"></ol>
+  </section>
+
+  <section id="seguridad" aria-labelledby="t-seg" class="seguridad">
+    <h2 id="t-seg">Cuidado con las estafas</h2>
+    <p>El único sitio oficial es <strong>yakkamon.com</strong> y la única cuenta oficial en X es <strong>@yakkamon_game</strong>; la anterior fue hackeada. Nadie del equipo te va a pedir tu frase semilla, ni códigos, ni que conectes tu billetera en otro sitio.</p>
+  </section>
+</main>
+
+<footer class="pie">
+  <p>Proyecto de fans, sin relación con Thought Farm. Yakkamon y sus personajes son de sus dueños.</p>
+  <p>Fuentes: <span id="fuentes"></span></p>
+  <p id="actualizado"></p>
+</footer>
+<script src="datos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
